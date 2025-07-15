@@ -14,6 +14,10 @@ from spotify_control import SpotifyController
 from camera import capture_photo, record_video
 from weather import get_weather
 from system_control import set_brightness, set_volume
+from internet_speed import get_speed
+from sys_utils import battery_status, system_info
+from screenshot import take_screenshot
+
 
 
 engine = pyttsx3.init()
@@ -123,6 +127,33 @@ def main_process():
                 speak("Recording video for 5 seconds")
                 response = record_video(duration=5)
                 speak(response)
+
+            elif "take screenshot" in request or "screenshot" in request:
+                response = take_screenshot()
+                speak(response)
+
+
+            
+            #internet and system utilities
+                        # Internet Speed & System Utilities
+            elif "internet speed" in request or "network speed" in request or "check internet" in request:
+                speak("Checking internet speed, please wait...")
+                speed = get_speed()
+                print(speed)
+                speak(speed)
+
+            elif "battery status" in request or "battery level" in request or "check battery" in request:
+                status = battery_status()
+                print(status)
+                speak(status)
+
+            elif "system info" in request or "system status" in request or "check system" in request:
+                info = system_info()
+                print(info)
+                speak(info)
+
+
+
 
             # Weather
             elif any(phrase in request for phrase in ["weather", "temperature", "forecast"]):
