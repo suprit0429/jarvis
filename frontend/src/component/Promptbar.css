@@ -1,0 +1,24 @@
+.prompt-wrapper {
+  position: relative;
+  width: 550px;
+}
+
+.prompt-input {
+  width: 100%;
+  text-align: center;
+  padding: 12px 50px 12px 20px;
+  border: 1px solid rgba(47, 47, 106, 0.429);
+  border-radius: 30px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.prompt-input::placeholder {
+  color: #9ca3af;
+  animation: typing 2s steps(12) 0.5s forwards, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width:0;}
+  to { width: 14ch;}
+}

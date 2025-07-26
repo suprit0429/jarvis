@@ -1,0 +1,57 @@
+
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: #fff;
+  animation: fadeOut 2s ease-in-out forwards;
+  animation-delay: 4s;
+  overflow: hidden;
+  z-index: 999;
+}
+.typing-text {
+   font-family: 'Orbitron', sans-serif;
+   font-size: 5rem;
+  color: #12d8e7;
+  letter-spacing: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #7feaf2;
+  width: 0;
+  animation: typing 2s steps(12) 0.5s forwards, blink 0.7s step-end infinite;
+  text-shadow: 0 0 3px rgb(174, 244, 244), 0 0 10px rgb(101, 182, 182), 0 0 20px rgb(98, 179, 179);
+
+}
+.typing-text.init {
+  width: auto;
+  animation: fadeIn 1s ease forwards, blink 0.7s step-end infinite;
+  border-right: none;
+}
+@keyframes typing {
+  from { width:0;}
+  to { width: 14ch;}
+}
+
+@keyframes blink {
+  from , to {border-color: transparent;}
+  50% { border-color: beige;}
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
